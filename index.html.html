@@ -71,40 +71,47 @@
         .reveal-up.is-visible { opacity: 1; transform: translateY(0); }
         .delay-1 { transition-delay: 0.2s; } .delay-2 { transition-delay: 0.4s; }
 
-        /* --- [섹션 3: 하프아워 스탠다드 (라이트 모드 반전)] --- */
-        .price-section { padding: 160px 10vw; background-color: #fcfbfa; min-height: 100vh; display: flex; align-items: center; color: #111; position: relative; z-index: 10; }
+        /* --- [섹션 3: 하프아워 스탠다드 (정갈한 파인다이닝 라이트 톤)] --- */
+        /* [교정] 배경을 미세하게 온기가 감도는 최고급 코튼/아이보리 톤(#FDFCFB)으로 미세 조정 */
+        .price-section { padding: 160px 10vw; background-color: #FDFCFB; min-height: 100vh; display: flex; align-items: center; color: #111; position: relative; z-index: 10; }
         .price-container { max-width: 1300px; margin: 0 auto; width: 100%; }
         
         .price-title-wrap { margin-bottom: 90px; }
-        .price-subtitle { font-size: 0.9rem; color: #8A7A6E; font-weight: 600; letter-spacing: 3px; margin-bottom: 20px; display: block; }
-        .price-headline { font-size: 3.2rem; font-weight: 700; color: #111; letter-spacing: -1px; }
+        /* [교정] 서브타이틀과 숫자/가격을 더 짙고 선명한 에스프레소 블랙(#1D1B1A)으로 교체 */
+        .price-subtitle { font-size: 0.9rem; color: #1D1B1A; font-weight: 600; letter-spacing: 3px; margin-bottom: 20px; display: block; }
+        .price-headline { font-size: 3.2rem; font-weight: 700; color: #000; letter-spacing: -1px; }
 
         /* 30분 시그니처 루틴 플로우 */
-        .routine-wrapper { display: flex; gap: 40px; margin-bottom: 120px; padding-bottom: 60px; border-bottom: 1px solid rgba(0,0,0,0.06); }
+        .routine-wrapper { display: flex; gap: 40px; margin-bottom: 120px; padding-bottom: 60px; border-bottom: 1px solid rgba(0,0,0,0.08); }
         .routine-card { flex: 1; }
         .routine-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 10px; }
-        .routine-num { font-size: 2rem; font-weight: 800; color: rgba(138, 122, 110, 0.2); font-family: 'Urbanist', sans-serif; line-height: 1; margin: 0; }
-        .routine-title { font-size: 0.95rem; font-weight: 700; color: #8A7A6E; letter-spacing: 1.5px; margin: 0; text-transform: uppercase; }
-        .routine-desc { font-size: 0.9rem; color: #555; line-height: 1.6; font-weight: 400; }
+        /* [교정] 숫자의 명도를 짙게 변경하여 가독성 확보 */
+        .routine-num { font-size: 2rem; font-weight: 800; color: rgba(29, 27, 26, 0.25); font-family: 'Urbanist', sans-serif; line-height: 1; margin: 0; }
+        .routine-title { font-size: 0.95rem; font-weight: 700; color: #1D1B1A; letter-spacing: 1.5px; margin: 0; text-transform: uppercase; }
+        /* [교정] 본문 가독성을 위해 더 짙은 그레이(#333)로 튜닝 */
+        .routine-desc { font-size: 0.9rem; color: #333; line-height: 1.6; font-weight: 400; }
 
         /* 가격 메뉴판 구조 */
         .price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8vw; align-items: start; }
-        .price-category h3 { font-size: 1.3rem; font-weight: 700; color: #8A7A6E; letter-spacing: 2px; margin-bottom: 45px; text-transform: uppercase; border-left: 3px solid #8A7A6E; padding-left: 14px; }
+        .price-category h3 { font-size: 1.3rem; font-weight: 700; color: #1D1B1A; letter-spacing: 2px; margin-bottom: 45px; text-transform: uppercase; border-left: 3px solid #1D1B1A; padding-left: 14px; }
         
         .menu-item { margin-bottom: 40px; }
         .menu-header { 
             display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 12px; padding-bottom: 10px; 
-            background-image: linear-gradient(to right, rgba(138, 122, 110, 0.3) 25%, rgba(255,255,255,0) 0%);
+            /* [교정] 점선 색상도 짙은 에스프레소(#1D1B1A) 톤으로 매칭 */
+            background-image: linear-gradient(to right, rgba(29, 27, 26, 0.15) 25%, rgba(255,255,255,0) 0%);
             background-position: bottom; background-size: 6px 1px; background-repeat: repeat-x;
         }
-        .menu-name { font-size: 1.1rem; font-weight: 600; color: #111; display: flex; align-items: flex-end; flex-wrap: wrap; gap: 8px; }
-        .menu-en { font-size: 0.8rem; color: #888; font-weight: 400; letter-spacing: 0.5px; white-space: nowrap; padding-bottom: 1px; }
-        .menu-price { font-size: 1.1rem; font-weight: 700; color: #8A7A6E; letter-spacing: 0.5px; font-family: 'Pretendard', sans-serif; white-space: nowrap; padding-left: 15px; }
-        .menu-desc { font-size: 0.9rem; color: #555; line-height: 1.6; font-weight: 400; }
-        /* [추가] 라이트 모드에서 strong 태그(멤버십 적립률 등)가 확실히 강조되도록 색상 추가 */
-        .menu-desc strong { color: #111; font-weight: 700; }
-        .menu-notice { font-size: 0.85rem; color: #888; line-height: 1.6; margin-top: -15px; font-weight: 400; }
-        
+        .menu-name { font-size: 1.1rem; font-weight: 600; color: #000; display: flex; align-items: flex-end; flex-wrap: wrap; gap: 8px; }
+        .menu-en { font-size: 0.8rem; color: #777; font-weight: 400; letter-spacing: 0.5px; white-space: nowrap; padding-bottom: 1px; }
+        .menu-price { font-size: 1.1rem; font-weight: 700; color: #1D1B1A; letter-spacing: 0.5px; font-family: 'Pretendard', sans-serif; white-space: nowrap; padding-left: 15px; }
+        /* [교정] 설명글 명도를 #333으로 한 단계 진하게 변경 */
+        .menu-desc { font-size: 0.9rem; color: #333; line-height: 1.6; font-weight: 400; }
+        /* [수정] 혜택(strong)이 자연스럽게 다음 줄로 넘어가면서 위쪽에 살짝 여백(6px)을 갖도록 블록 처리 */
+        .menu-desc strong { display: block; margin-top: 6px; color: #000; font-weight: 700; }
+        /* [수정] 마이너스 마진(-15px)을 없애고, 위쪽 메뉴와 충분히 떨어지도록 15px의 넉넉한 여백 부여 */
+        .menu-notice { font-size: 0.85rem; color: #777; line-height: 1.6; margin-top: 15px; font-weight: 400; }
+
         /* --- [모바일 반응형] --- */
         @media screen and (max-width: 1100px) {
             /* [수정] 좌측 패딩도 8vw로 맞춰 완벽한 좌우 대칭 정렬 */
@@ -130,18 +137,18 @@
             /* [섹션 3 모바일 라이트 모드 오버라이드] */
             .price-section { padding: 100px 8vw; color: #111; }
             .price-title-wrap { margin-bottom: 60px; }
-            .price-headline { font-size: 2.1rem; line-height: 1.3; color: #111; }
+            .price-headline { font-size: 2.1rem; line-height: 1.3; color: #000; }
             .routine-wrapper { flex-direction: column; gap: 30px; margin-bottom: 80px; padding-bottom: 40px; }
             .routine-header { margin-bottom: 8px; display: flex; align-items: baseline; gap: 10px; }
             .routine-num { font-size: 1.6rem; }
             .routine-title { font-size: 0.95rem; }
-            .routine-desc { font-size: 0.95rem; line-height: 1.6; color: #555; }
+            .routine-desc { font-size: 0.95rem; line-height: 1.6; color: #333; }
             .price-grid { grid-template-columns: 1fr; gap: 60px; }
             .price-category h3 { font-size: 1.15rem; margin-bottom: 30px; }
             .menu-item { margin-bottom: 30px; }
-            .menu-name { font-size: 1.05rem; color: #111; }
+            .menu-name { font-size: 1.05rem; color: #000; }
             .menu-price { font-size: 1.05rem; }
-            .menu-desc { font-size: 0.95rem; line-height: 1.5; color: #666; }
+            .menu-desc { font-size: 0.95rem; line-height: 1.5; color: #444; }
         }
     </style>
 </head>
@@ -280,41 +287,41 @@
                     <div class="menu-item">
                         <div class="menu-header">
                             <span class="menu-name">스탠다드 컷<span class="menu-en">Standard Cut</span></span>
-                            <span class="menu-price">23,000</span>
-                        </div>
-                        <p class="menu-desc">하프아워의 철학이 담긴 가장 담백하고 깔끔한 기본 정밀 커트</p>
-                    </div>
-                    
-                    <div class="menu-item">
-                        <div class="menu-header">
-                            <span class="menu-name">디자인 다운 컷<span class="menu-en">Design Down Cut</span></span>
                             <span class="menu-price">25,000</span>
                         </div>
-                        <p class="menu-desc">세부적인 라인 교정과 세련된 다운 스타일이 포함된 맞춤 커트</p>
+                        <p class="menu-desc">불필요한 디테일을 덜어내고 선과 형태에 온전히 집중한 하프아워 시그니처 커트</p>
                     </div>
                     
                     <div class="menu-item">
                         <div class="menu-header">
-                            <span class="menu-name">내추럴 일반펌<span class="menu-en">Classic Perm</span></span>
+                            <span class="menu-name">테일러드 다운 컷<span class="menu-en">Tailored Down Cut</span></span>
+                            <span class="menu-price">45,000</span>
+                        </div>
+                        <p class="menu-desc">개인의 두상 골격을 정밀하게 교정하여 가장 이상적인 실루엣을 빚어내는 다운 컷</p>
+                    </div>
+                    
+                    <div class="menu-item">
+                        <div class="menu-header">
+                            <span class="menu-name">에센셜 텍스처 펌<span class="menu-en">Essential Texture Perm</span></span>
                             <span class="menu-price">70,000 - 80,000</span>
                         </div>
-                        <p class="menu-desc">과하지 않은 자연스러운 볼륨감과 흐름을 만드는 스탠다드 펌</p>
+                        <p class="menu-desc">인위적인 느낌을 배제하고, 자연스러운 볼륨과 우아한 흐름을 완성하는 스탠다드 펌</p>
                     </div>
                     
                     <div class="menu-item">
                         <div class="menu-header">
-                            <span class="menu-name">시그니처 열펌<span class="menu-en">Signature Heat Perm</span></span>
+                            <span class="menu-name">프리미엄 쉐이핑 열펌<span class="menu-en">Premium Shaping Heat Perm</span></span>
                             <span class="menu-price">100,000 - 120,000</span>
                         </div>
-                        <p class="menu-desc">고정력과 유지력을 극대화하여 흐트러짐 없는 형태를 잡는 프리미엄 열펌</p>
+                        <p class="menu-desc">시간이 지나도 무너지지 않는 견고한 형태감과 압도적인 유지력을 자랑하는 프리미엄 열펌</p>
                     </div>
                     
                     <div class="menu-item">
                         <div class="menu-header">
-                            <span class="menu-name">모던 컬러<span class="menu-en">Signature Color</span></span>
-                            <span class="menu-price">50,000 선</span>
+                            <span class="menu-name">시그니처 무드 컬러<span class="menu-en">Signature Mood Color</span></span>
+                            <span class="menu-price">50,000</span>
                         </div>
-                        <p class="menu-desc">차분하고 정돈된 이미지를 완성하는 부드러운 하프아워 맞춤형 염색</p>
+                        <p class="menu-desc">피부 톤과 라이프스타일을 고려하여 가장 깊이 있고 세련된 무드를 부여하는 맞춤 컬러</p>
                     </div>
                 </div>
 
@@ -323,21 +330,21 @@
                     
                     <div class="menu-item">
                         <div class="menu-header">
-                            <span class="menu-name">멤버십 20<span class="menu-en">Membership 20</span></span>
+                            <span class="menu-name">클래식 멤버십<span class="menu-en">Classic Membership</span></span>
                             <span class="menu-price">200,000</span>
                         </div>
-                        <p class="menu-desc">하프아워의 기본 멤버십 플랜 / <strong>추가 10% 리워드 포인트 적립</strong></p>
+                        <p class="menu-desc">지속적이고 안정적인 스타일 관리를 위한 베이직 플랜 <strong>추가 10% 리워드 포인트 적립</strong></p>
                     </div>
                     
                     <div class="menu-item">
                         <div class="menu-header">
-                            <span class="menu-name">멤버십 30<span class="menu-en">Membership 30</span></span>
+                            <span class="menu-name">블랙 멤버십<span class="menu-en">Black Membership</span></span>
                             <span class="menu-price">300,000</span>
                         </div>
-                        <p class="menu-desc">단골 고객을 위한 고밀도 예치 플랜 / <strong>추가 15% 상위 등급 리워드 포인트 적립</strong></p>
+                        <p class="menu-desc">타협 없는 최상의 퀄리티를 온전히 누리기 위한 프리미엄 플랜 <strong>추가 15% 상위 등급 리워드 포인트 적립</strong></p>
                     </div>
                     
-                    <p class="menu-notice">* 하프아워 멤버십은 별도의 시술 할인을 적용하지 않는 대신, 상시 차등적인 추가 포인트 적립 크레딧을 제공합니다.</p>
+                    <p class="menu-notice">* 하프아워는 무의미한 가격 할인으로 시술의 본질을 타협하지 않습니다. 대신, 멤버십 등급에 따른 10~15% 리워드 크레딧을 정직하게 적립해 드립니다.</p>
                 </div>
 
             </div>
