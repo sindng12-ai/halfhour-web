@@ -182,35 +182,37 @@
         .review-author { font-size: 0.95rem; font-weight: 600; color: #fff; }
         .review-service { font-size: 0.85rem; color: #888; font-weight: 400; letter-spacing: 0.5px; }
 
-        /* --- [섹션 6: 푸터 및 매장 정보 (명함 스타일 반전)] --- */
+        /* --- [섹션 6: 푸터 및 매장 정보 (명함 스타일 반전 + PC 4열 전개)] --- */
         .footer-section { padding: 100px 10vw 50px; background-color: #E8E1D9; color: #1D1B1A; }
-        .footer-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 60px; }
+        
+        /* [수정됨] PC 넓게 쓰기 (4열 배치용) */
+        .footer-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-start; gap: 6vw; }
 
-        /* 좌측: 로고 및 예약 버튼 */
-        .footer-left { flex: 1; min-width: 300px; }
+        /* [수정됨] 좌측: 로고 및 예약 버튼 (영역 너비 고정) */
+        .footer-left { flex: 0 0 320px; }
         .footer-logo { font-size: 2.2rem; font-weight: 800; letter-spacing: 1px; margin-bottom: 20px; color: #1D1B1A; }
         .footer-slogan { font-size: 0.95rem; color: #555; line-height: 1.6; margin-bottom: 40px; }
         
-        /* [핵심] 예약 버튼 반전 (밝은 배경이므로 블랙 버튼) */
+        /* 예약 버튼 */
         .footer-btn { display: inline-flex; align-items: center; justify-content: center; padding: 18px 45px; background-color: #1D1B1A; color: #fff !important; font-size: 1.05rem; font-weight: 700; text-decoration: none; border-radius: 4px; transition: all 0.3s ease; margin-top: 25px; margin-bottom: 10px; letter-spacing: 1px; }
         @media (hover: hover) {
             .footer-btn:hover { background-color: #444; transform: translateY(-2px); }
         }
 
-        /* 우측: 매장 정보 그리드 */
-        .footer-right { flex: 1; min-width: 300px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        .info-block h4 { font-size: 0.8rem; color: #000; font-weight: 700; letter-spacing: 1px; margin-bottom: 10px; text-transform: uppercase; }
+        /* [수정됨] 우측: 매장 정보 그리드 (PC에서는 4칸으로 시원하게 펼치기) */
+        .footer-right { flex: 1; display: grid; grid-template-columns: repeat(4, 1fr); gap: 2vw; padding-top: 12px; }
+        .info-block h4 { font-size: 0.8rem; color: #000; font-weight: 700; letter-spacing: 1px; margin-bottom: 15px; text-transform: uppercase; }
         .info-block p { font-size: 0.85rem; color: #444; line-height: 1.6; margin: 0; word-break: keep-all; }
         
-        /* 최하단 카피라이트 (중앙 정렬 강제 고정) */
+        /* 최하단 카피라이트 (중앙 정렬 강제 고정 - 유지됨) */
         .footer-bottom { 
             display: block; 
-            width: 100%; /* 화면 전체를 쓰도록 강제 */
+            width: 100%; 
             max-width: 1400px; 
             margin: 60px auto 0; 
             padding-top: 25px; 
             border-top: 1px solid rgba(0,0,0,0.1); 
-            text-align: center; /* 글씨 중앙 정렬 */
+            text-align: center; 
             font-size: 0.75rem; 
             color: #888; 
             clear: both; 
