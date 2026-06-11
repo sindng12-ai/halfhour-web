@@ -25,15 +25,17 @@
         .hamburger-btn { font-size: 1.8rem; cursor: pointer; transition: 0.3s; padding-bottom: 3px; }
         .hamburger-btn:hover { color: #D4C4B7; }
 
-        /* --- [사이드바] --- */
+        /* --- [사이드바 (메가 드로어)] --- */
         #sidebar-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100dvh; background: rgba(0,0,0,0.4); backdrop-filter: blur(3px); z-index: 1999; opacity: 0; visibility: hidden; transition: 0.4s; }
         #sidebar { position: fixed; top: 0; right: -360px; width: 360px; height: 100dvh; background: rgba(15, 15, 15, 0.85); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); z-index: 2000; padding: calc(60px + env(safe-area-inset-top)) 40px calc(40px + env(safe-area-inset-bottom)); box-sizing: border-box; overflow-y: auto; transition: right 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); display: flex; flex-direction: column; }
         body.menu-open #sidebar { right: 0; } body.menu-open #sidebar-overlay { opacity: 1; visibility: visible; } body.menu-open { overflow: hidden; }
         .close-btn { color: #a0a0a0; font-size: 2rem; cursor: pointer; position: absolute; top: calc(20px + env(safe-area-inset-top)); right: 35px; transition: 0.3s; } .close-btn:hover { color: #fff; }
+        
         .sidebar-menu-group { display: flex; flex-direction: column; gap: 40px; margin-top: 20px; }
         .sidebar-item h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 16px; letter-spacing: 1px; }
         .sidebar-item ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
         .sidebar-item ul li { font-size: 0.95rem; color: #aaa; cursor: pointer; transition: 0.3s; } .sidebar-item ul li:hover { color: #D4C4B7; }
+        
         .sidebar-bottom-actions { margin-top: auto; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; flex-direction: column; gap: 10px; }
         .sidebar-reserve-btn { display: none; width: 100%; background: #D4C4B7; color: #111; border: none; padding: 14px 0; border-radius: 6px; font-weight: 700; cursor: pointer; transition: 0.3s; } .sidebar-reserve-btn:hover { background: #e3d5c9; }
         .sidebar-recruit-btn { width: 100%; background: transparent; color: #D4C4B7; border: 1px solid #D4C4B7; padding: 14px 0; border-radius: 6px; font-weight: 600; cursor: pointer; transition: 0.3s; } .sidebar-recruit-btn:hover { background: #D4C4B7; color: #111; }
@@ -54,18 +56,15 @@
         .story-section { padding: 150px 10vw; min-height: 100vh; display: flex; align-items: center; background-color: #050505; }
         .split-layout { display: flex; align-items: center; gap: 8vw; width: 100%; max-width: 1400px; margin: 0 auto; }
         
-        /* 텍스트 영역 */
         .story-text { flex: 1; }
         .story-subtitle { font-size: 0.9rem; color: #D4C4B7; font-weight: 600; letter-spacing: 3px; margin-bottom: 20px; display: block; }
         .story-headline { font-size: 3.2rem; font-weight: 700; line-height: 1.25; margin-bottom: 40px; letter-spacing: -1px; }
         .story-paragraph { font-size: 1.1rem; color: #888; line-height: 1.8; margin-bottom: 25px; font-weight: 300; }
         .story-paragraph strong { color: #fff; font-weight: 500; }
         
-        /* 이미지 영역 */
         .story-image-wrap { flex: 1; height: 75vh; overflow: hidden; border-radius: 4px; position: relative; }
         .story-image-wrap img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(30%) contrast(1.1); }
         
-        /* 스크롤 애니메이션 (JS로 .is-visible 클래스가 붙으면 작동) */
         .reveal-up { opacity: 0; transform: translateY(40px); transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1); }
         .reveal-up.is-visible { opacity: 1; transform: translateY(0); }
         .delay-1 { transition-delay: 0.2s; } .delay-2 { transition-delay: 0.4s; }
@@ -81,7 +80,6 @@
             .hero-section { background-image: linear-gradient(0deg, rgba(5,5,5,0.95) 0%, rgba(5,5,5,0.6) 50%, rgba(5,5,5,0.3) 100%), url('https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=800&auto=format&fit=crop'); justify-content: flex-start; align-items: flex-end; padding-bottom: calc(120px + env(safe-area-inset-bottom)); padding-left: 6vw; padding-right: 6vw; }
             .hero-title { font-size: 2.8rem; margin-bottom: 20px; } .hero-desc { font-size: 1rem; margin-bottom: 35px; } .primary-btn { width: 100%; }
             
-            /* 섹션 2 모바일: 위아래 수직 구조로 변경 */
             .story-section { padding: 100px 6vw; }
             .split-layout { flex-direction: column; gap: 50px; }
             .story-headline { font-size: 2.4rem; margin-bottom: 30px; }
@@ -107,12 +105,43 @@
         <div style="width: 100%;">
             <div class="close-btn" onclick="toggleMenu()">×</div>
             <div class="sidebar-menu-group">
-                <div class="sidebar-item"><h3>우리의 이야기</h3><ul><li>브랜드 철학</li><li>공간 무드</li><li>팀 하프아워</li><li>사용 제품</li></ul></div>
-                <div class="sidebar-item"><h3>하프아워 시스템</h3><ul><li>시그니처 루틴</li><li>가격 안내</li><li>멤버십 혜택</li></ul></div>
+                <div class="sidebar-item">
+                    <h3>우리의 이야기</h3>
+                    <ul>
+                        <li>브랜드 철학</li>
+                        <li>공간 무드</li>
+                        <li>팀 하프아워</li>
+                        <li>사용 제품</li>
+                    </ul>
+                </div>
+                <div class="sidebar-item">
+                    <h3>하프아워 시스템</h3>
+                    <ul>
+                        <li>시그니처 루틴</li>
+                        <li>가격 안내</li>
+                        <li>멤버십 혜택</li>
+                    </ul>
+                </div>
+                <div class="sidebar-item">
+                    <h3>시그니처 스타일</h3>
+                    <ul>
+                        <li>스타일 룩북</li>
+                        <li>리얼 체인지</li>
+                        <li>스타일링 팁</li>
+                    </ul>
+                </div>
+                <div class="sidebar-item">
+                    <h3>리얼 리뷰</h3>
+                    <ul>
+                        <li>고객 후기</li>
+                        <li>포토 리뷰</li>
+                    </ul>
+                </div>
             </div>
         </div>
         <div class="sidebar-bottom-actions">
-            <button class="sidebar-reserve-btn">예약하기</button> <button class="sidebar-recruit-btn">RECRUIT | 팀 하프아워</button>
+            <button class="sidebar-reserve-btn">예약하기</button> 
+            <button class="sidebar-recruit-btn">RECRUIT | 팀 하프아워</button>
         </div>
     </nav>
 
@@ -121,7 +150,7 @@
             <div class="hero-label">TIME FIRST, RELAXING ROUTINE</div>
             <h1 class="hero-title">남자의 시간을<br>가장 가치 있게</h1>
             <p class="hero-desc">기분 좋은 침묵, 오차 없는 30분.<br>예측 가능한 안심의 흐름으로 당신만의 루틴을 설계합니다.</p>
-            <button class="primary-btn" onclick="scrollToStory()">하프아워 탐색하기</button>
+            <button class="primary-btn" onclick="scrollToStory()">루틴 살펴보기</button>
         </div>
         <div class="scroll-indicator">SCROLL</div>
     </div>
@@ -137,36 +166,4 @@
                     <p class="story-paragraph">오차 없이 정확하게 설계된 30분. 당신은 그저 눈을 감고 온전히 쉬기만 하면 됩니다.</p>
                 </div>
             </div>
-            
-            <div class="story-image-wrap reveal-up delay-2">
-                <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=1000&auto=format&fit=crop" alt="Moody salon atmosphere">
-            </div>
-        </div>
-    </section>
-
-    <script>
-        function toggleMenu() { document.body.classList.toggle('menu-open'); }
-        
-        // 버튼 클릭 시 섹션 2로 부드럽게 스크롤
-        function scrollToStory() {
-            document.getElementById('story-section').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // 스크롤 시 섹션 2 요소들이 스르륵 나타나는 애니메이션 (Intersection Observer)
-        document.addEventListener("DOMContentLoaded", function() {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                    }
-                });
-            }, { threshold: 0.2 }); // 화면에 20% 보일 때 작동
-
-            document.querySelectorAll('.reveal-up').forEach((el) => {
-                observer.observe(el);
-            });
-        });
-    </script>
-
-</body>
-</html>
+            <div class="story-image
