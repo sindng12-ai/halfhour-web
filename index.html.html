@@ -9,7 +9,7 @@
         body { margin: 0; padding: 0; font-family: 'Pretendard', sans-serif; word-break: keep-all; background-color: #0a0a0a; overflow-x: hidden; }
         h1, p { margin: 0; }
         
-        /* --- [상단 네비게이션] --- */
+        /* --- [상단 네비게이션: 미니멀 라이징] --- */
         header {
             padding-top: env(safe-area-inset-top);
             position: fixed; top: 0; left: 0; width: 100%; height: calc(85px + env(safe-area-inset-top));
@@ -25,10 +25,7 @@
         .nav-menus span:hover { color: #fff; }
         
         .header-actions { display: flex; gap: 20px; align-items: center; white-space: nowrap; }
-        .btn-reserve { 
-            background: transparent; color: #D4C4B7; border: 1px solid #D4C4B7; 
-            padding: 9px 24px; border-radius: 6px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; 
-        }
+        .btn-reserve { background: transparent; color: #D4C4B7; border: 1px solid #D4C4B7; padding: 9px 24px; border-radius: 6px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; }
         .btn-reserve:hover { background: #D4C4B7; color: #111; }
         
         .hamburger-btn { color: #fff; font-size: 1.8rem; cursor: pointer; line-height: 1; padding-bottom: 3px; transition: color 0.3s; }
@@ -36,36 +33,22 @@
 
         /* --- [사이드바 (메가 드로어)] --- */
         #sidebar-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100vh; height: 100dvh;
-            background: rgba(0,0,0,0.4); backdrop-filter: blur(3px);
-            z-index: 1999; opacity: 0; visibility: hidden; transition: all 0.4s ease;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100dvh;
+            background: rgba(0,0,0,0.4); backdrop-filter: blur(3px); z-index: 1999; opacity: 0; visibility: hidden; transition: all 0.4s ease;
         }
-        
         #sidebar {
-            position: fixed; top: 0; right: -360px; width: 360px; 
-            /* [핵심 기술: 100dvh 적용으로 모바일 주소창 가림 현상 완벽 해결] */
-            height: 100vh; height: 100dvh; 
-            
+            position: fixed; top: 0; right: -360px; width: 360px; height: 100dvh;
             background: rgba(15, 15, 15, 0.85); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
             z-index: 2000; box-shadow: -10px 0 30px rgba(0,0,0,0.5);
-            padding-top: calc(60px + env(safe-area-inset-top)); 
-            padding-bottom: calc(40px + env(safe-area-inset-bottom));
-            padding-left: 40px; padding-right: 40px; 
-            
-            /* 메뉴가 길면 스크롤 가능하게 설정 */
-            box-sizing: border-box; overflow-y: auto; overflow-x: hidden;
-            transition: right 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-            display: flex; flex-direction: column; 
+            padding-top: calc(60px + env(safe-area-inset-top)); padding-bottom: calc(40px + env(safe-area-inset-bottom));
+            padding-left: 40px; padding-right: 40px; box-sizing: border-box; overflow-y: auto; overflow-x: hidden;
+            transition: right 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); display: flex; flex-direction: column; 
         }
-        
         body.menu-open #sidebar { right: 0; }
         body.menu-open #sidebar-overlay { opacity: 1; visibility: visible; }
         body.menu-open { overflow: hidden; }
 
-        .close-btn { 
-            color: #a0a0a0; font-size: 2rem; cursor: pointer; position: absolute; 
-            top: calc(20px + env(safe-area-inset-top)); right: 35px; transition: color 0.3s; 
-        }
+        .close-btn { color: #a0a0a0; font-size: 2rem; cursor: pointer; position: absolute; top: calc(20px + env(safe-area-inset-top)); right: 35px; transition: color 0.3s; }
         .close-btn:hover { color: #fff; }
 
         .sidebar-menu-group { display: flex; flex-direction: column; gap: 40px; margin-top: 20px; }
@@ -74,71 +57,58 @@
         .sidebar-item ul li { font-size: 0.95rem; color: #aaa; cursor: pointer; transition: color 0.3s; }
         .sidebar-item ul li:hover { color: #D4C4B7; }
 
-        /* [핵심 기술: margin-top: auto 를 주어 버튼을 무조건 맨 밑으로 밀어내고, 화면이 좁으면 스크롤되게 만듦] */
-        .sidebar-bottom-actions { 
-            margin-top: auto; 
-            padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); 
-            display: flex; flex-direction: column; gap: 10px; 
-        }
-        
-        .sidebar-reserve-btn {
-            display: none; 
-            width: 100%; text-align: center; background: #D4C4B7; color: #111; 
-            border: none; padding: 14px 0; border-radius: 6px; 
-            font-size: 0.95rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; letter-spacing: 1px;
-        }
+        .sidebar-bottom-actions { margin-top: auto; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; flex-direction: column; gap: 10px; }
+        .sidebar-reserve-btn { display: none; width: 100%; text-align: center; background: #D4C4B7; color: #111; border: none; padding: 14px 0; border-radius: 6px; font-size: 0.95rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; letter-spacing: 1px; }
         .sidebar-reserve-btn:hover { background: #e3d5c9; }
-
-        .sidebar-recruit-btn {
-            display: block; width: 100%; text-align: center; background: transparent; 
-            color: #D4C4B7; border: 1px solid #D4C4B7; padding: 14px 0; border-radius: 6px; 
-            font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; letter-spacing: 1px;
-        }
+        .sidebar-recruit-btn { display: block; width: 100%; text-align: center; background: transparent; color: #D4C4B7; border: 1px solid #D4C4B7; padding: 14px 0; border-radius: 6px; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; letter-spacing: 1px; }
         .sidebar-recruit-btn:hover { background: #D4C4B7; color: #111; }
 
-        /* --- [대문 배경 및 텍스트] --- */
+        /* --- [대문 배경: 옵션 3 스테틱 미니멀 적용] --- */
         .hero-section {
-            height: 100vh; height: 100dvh; /* 대문 껍데기도 모바일 주소창 버그에 대응 */
-            width: 100%; display: flex; align-items: center; justify-content: flex-start;
-            padding: 0 10vw; box-sizing: border-box; position: relative;
+            height: 100dvh; width: 100%; display: flex; align-items: center; justify-content: flex-start;
+            padding: 0 10vw; box-sizing: border-box; position: relative; color: #fff; overflow: hidden;
+            
+            /* 눈을 피로하게 하는 잔움직임을 완전히 배제한 고급스러운 정적 배경 설정 */
             background-image: linear-gradient(90deg, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.85) 45%, rgba(10,10,10,0.2) 100%), 
             url('https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=2000&auto=format&fit=crop');
-            background-size: cover; background-position: center; color: #fff;
+            background-size: cover; background-position: center;
         }
-        .hero-content { max-width: 650px; animation: fadeUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; opacity: 0; transform: translateY(20px); }
-        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
 
-        .hero-label { font-size: 0.85rem; font-weight: 600; letter-spacing: 5px; color: #D4C4B7; margin-bottom: 25px; }
-        .hero-content h1 { font-size: 4.2rem; font-weight: 800; margin-bottom: 30px; line-height: 1.2; letter-spacing: -1.5px; }
-        .hero-content p { font-size: 1.15rem; font-weight: 300; color: #999; line-height: 1.7; margin-bottom: 50px; }
-
+        /* --- [대문 텍스트 (옵션 3: 정돈된 시간차 Flow)] --- */
+        .hero-content { max-width: 650px; z-index: 10; }
+        
+        /* 텍스트 요소가 아래에서 위로 깨끗하게 단차를 두고 피어오름 */
+        .hero-content > * { opacity: 0; transform: translateY(15px); animation: pureFadeUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
+        @keyframes pureFadeUp { to { opacity: 1; transform: translateY(0); } }
+        
+        .hero-label { font-size: 0.85rem; font-weight: 600; letter-spacing: 5px; color: #D4C4B7; margin-bottom: 25px; animation-delay: 0.1s; }
+        .hero-title { font-size: 4.2rem; font-weight: 800; margin-bottom: 30px; line-height: 1.2; letter-spacing: -1.5px; animation-delay: 0.3s; }
+        .hero-desc { font-size: 1.15rem; font-weight: 300; color: #999; line-height: 1.7; margin-bottom: 50px; animation-delay: 0.5s; }
+        
+        /* [수정 포인트: 스크롤 동선에 최적화된 연한 누드톤 베이지 버튼] */
         .primary-btn {
             background-color: #D4C4B7; color: #111; border: none; padding: 18px 45px;
-            font-size: 1.1rem; font-weight: 700; border-radius: 6px; cursor: pointer; transition: all 0.3s ease;
+            font-size: 1.1rem; font-weight: 700; border-radius: 6px; cursor: pointer; transition: all 0.3s ease; animation-delay: 0.7s;
         }
         .primary-btn:hover { background-color: #e3d5c9; transform: translateY(-2px); }
 
         .scroll-indicator {
             position: absolute; bottom: calc(40px + env(safe-area-inset-bottom)); left: 50%; transform: translateX(-50%); 
             display: flex; flex-direction: column; align-items: center; gap: 10px;
-            color: #D4C4B7; font-size: 0.75rem; font-weight: 500; letter-spacing: 2px; animation: bounce 2s infinite; opacity: 0.7;
+            color: #D4C4B7; font-size: 0.75rem; font-weight: 500; letter-spacing: 2px; opacity: 0; 
+            animation: bounce 2s infinite, fadeIn 0.8s 1.2s forwards; z-index: 10;
         }
         .scroll-indicator::after { content: ''; width: 1px; height: 30px; background-color: #D4C4B7; }
         @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); } 40% { transform: translate(-50%, -10px); } 60% { transform: translate(-50%, -5px); } }
+        @keyframes fadeIn { to { opacity: 0.7; } }
 
         /* --- [모바일 반응형] --- */
         @media screen and (max-width: 1100px) {
             header { padding-left: 5vw; padding-right: 5vw; height: calc(75px + env(safe-area-inset-top)); }
             .nav-menus, .btn-reserve { display: none; } 
             
-            #sidebar { 
-                width: 260px; right: -260px; 
-                padding-top: calc(35px + env(safe-area-inset-top)); 
-                padding-bottom: calc(25px + env(safe-area-inset-bottom));
-                padding-left: 25px; padding-right: 25px;
-            } 
+            #sidebar { width: 260px; right: -260px; padding-top: calc(35px + env(safe-area-inset-top)); padding-bottom: calc(25px + env(safe-area-inset-bottom)); padding-left: 25px; padding-right: 25px; } 
             .close-btn { top: calc(15px + env(safe-area-inset-top)); right: 20px; font-size: 1.8rem; }
-            
             .sidebar-menu-group { gap: 28px; margin-top: 10px; }
             .sidebar-item h3 { font-size: 1rem; margin-bottom: 12px; letter-spacing: 0.5px; }
             .sidebar-item ul { gap: 10px; }
@@ -148,15 +118,15 @@
             .sidebar-reserve-btn { display: block; font-size: 0.85rem; padding: 10px 0; border-radius: 4px; }
             .sidebar-recruit-btn { font-size: 0.85rem; padding: 10px 0; border-radius: 4px; }
 
+            /* 모바일 전용 고정 이미지 레이어 처리 */
             .hero-section {
-                padding: 0 6vw; 
                 background-image: linear-gradient(0deg, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.6) 50%, rgba(10,10,10,0.3) 100%), 
                 url('https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=800&auto=format&fit=crop');
-                justify-content: flex-start; align-items: flex-end; padding-bottom: calc(120px + env(safe-area-inset-bottom));
+                justify-content: flex-start; align-items: flex-end; padding-bottom: calc(120px + env(safe-area-inset-bottom)); padding-left: 6vw; padding-right: 6vw;
             }
             .hero-label { font-size: 0.75rem; letter-spacing: 3px; }
-            .hero-content h1 { font-size: 2.8rem; margin-bottom: 20px; }
-            .hero-content p { font-size: 1rem; margin-bottom: 35px; }
+            .hero-title { font-size: 2.8rem; margin-bottom: 20px; }
+            .hero-desc { font-size: 1rem; margin-bottom: 35px; }
             .primary-btn { width: 100%; font-size: 1.05rem; padding: 16px 0; } 
         }
     </style>
@@ -226,9 +196,9 @@
     <div class="hero-section">
         <div class="hero-content">
             <div class="hero-label">TIME FIRST, RELAXING ROUTINE</div>
-            <h1>남자의 시간을<br>가장 가치 있게</h1>
-            <p>기분 좋은 침묵, 오차 없는 30분.<br>예측 가능한 안심의 흐름으로 당신만의 루틴을 설계합니다.</p>
-            <button class="primary-btn">효율적인 루틴 시작하기</button>
+            <h1 class="hero-title">남자의 시간을<br>가장 가치 있게</h1>
+            <p class="hero-desc">기분 좋은 침묵, 오차 없는 30분.<br>예측 가능한 안심의 흐름으로 당신만의 루틴을 설계합니다.</p>
+            <button class="primary-btn">하프아워 탐색하기</button>
         </div>
         <div class="scroll-indicator">SCROLL</div>
     </div>
