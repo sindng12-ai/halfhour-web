@@ -202,9 +202,19 @@
         .info-block h4 { font-size: 0.8rem; color: #000; font-weight: 700; letter-spacing: 1px; margin-bottom: 10px; text-transform: uppercase; }
         .info-block p { font-size: 0.85rem; color: #444; line-height: 1.6; margin: 0; word-break: keep-all; }
         
-        /* 최하단 카피라이트 */
-        .footer-bottom { max-width: 1400px; margin: 60px auto 0; padding-top: 20px; border-top: 1px solid rgba(0,0,0,0.1); text-align: center; font-size: 0.75rem; color: #888; }
-
+        /* 최하단 카피라이트 (중앙 정렬 강제 고정) */
+        .footer-bottom { 
+            display: block; 
+            width: 100%; /* 화면 전체를 쓰도록 강제 */
+            max-width: 1400px; 
+            margin: 60px auto 0; 
+            padding-top: 25px; 
+            border-top: 1px solid rgba(0,0,0,0.1); 
+            text-align: center; /* 글씨 중앙 정렬 */
+            font-size: 0.75rem; 
+            color: #888; 
+            clear: both; 
+        }
 
         /* --- [모바일 반응형] --- */
         @media screen and (max-width: 1100px) {
@@ -355,7 +365,7 @@
         <div class="hero-content">
             <div class="hero-label">TIME FIRST, RELAXING ROUTINE</div>
             <h1 class="hero-title">남자의 시간을<br>가장 가치 있게</h1>
-            <p class="hero-desc">기분 좋은 침묵, 오차 없는 30분.<br>예측 가능한 안심의 흐름으로 당신만의 루틴을 설계합니다.</p>
+            <p class="hero-desc">기분 좋은 침묵, 오차 없는 30분.<br>가장 편안하고 정교한 흐름으로<br>당신만의 루틴을 설계합니다.</p>
             <button class="primary-btn" onclick="scrollToStory()">루틴 살펴보기</button>
         </div>
         <div class="scroll-indicator">SCROLL</div>
@@ -373,7 +383,7 @@
                 </div>
             </div>
             <div class="story-image-wrap reveal-up delay-2">
-                <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=1000&auto=format&fit=crop" alt="Calm and Modern Men's Hair Salon">
+                <img src="2세션.jpg" alt="Calm and Modern Men's Hair Salon">
             </div>
         </div>
     </section>
@@ -619,7 +629,7 @@
             
             <div class="footer-left reveal-up">
                 <div class="footer-logo">HALF HOUR</div>
-                <p class="footer-slogan">침묵, 효율, 그리고 완벽한 실루엣.<br>당신의 가치 있는 30분을 예약하세요.</p>
+                <p class="footer-slogan">정제된 시간, 타협하지 않는 디테일.<br>당신의 가치 있는 30분을 예약하세요.</p>
                 
                 <a href="https://naver.me/5r9K9b2V" target="_blank" class="footer-btn">네이버 예약하기</a>
 
